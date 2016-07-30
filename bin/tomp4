@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+my $HANDBRAKE="$ENV{USER}/Applications/HandBrakeCLI/latest/bin/HandBrakeCLI";
+
+foreach my $file (@ARGV) {
+    `$HANDBRAKE -i "$file" -o "$file.mp4" --preset='iPad' && rm -v "$file"`;
+}
